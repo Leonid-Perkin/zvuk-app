@@ -34,13 +34,16 @@
         "output": "dist"
       },
       "win": {
-        "target": "nsis"
+        "target": "nsis",
+        "icon": "assets/icon.ico"
       },
       "mac": {
-        "target": "dmg"
+        "target": "dmg",
+        "icon": "assets/icon.ico"
       },
       "linux": {
-        "target": "AppImage"
+        "target": "AppImage",
+        "icon": "assets/icon.ico"
       }
     }
   }

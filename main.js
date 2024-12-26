@@ -16,7 +16,7 @@ app.on('ready', () => {
       enableRemoteModule: false,
       plugins: true,
     },
-    icon: __dirname + '/icon.png',
+    icon: path.join(__dirname, 'assets/icon.ico'),
   });
 
   mainWindow.loadURL('https://zvuk.com');
