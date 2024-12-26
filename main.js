@@ -1,8 +1,12 @@
 const { app, BrowserWindow, Menu } = require('electron');
+const path = require('path');
 
 let mainWindow;
 
 app.on('ready', () => {
+  app.commandLine.appendSwitch('enable-widevine-cdm');
+  app.commandLine.appendSwitch('plugins', 'true');
+
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -10,6 +14,7 @@ app.on('ready', () => {
       nodeIntegration: false,
       contextIsolation: true,
       enableRemoteModule: false,
+      plugins: true,
     },
     icon: __dirname + '/icon.png',
   });
