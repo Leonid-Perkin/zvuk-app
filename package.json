@@ -25,7 +25,7 @@
     },
     "build": {
       "appId": "com.zvuk.app",
-      "productName": "Zvuk App",
+      "productName": "Звук",
       "files": [
         "**/*",
         "!**/*.map"
@@ -36,15 +36,6 @@
       "win": {
         "target": "nsis",
         "icon": "assets/icon.ico"
-      },
-      "mac": {
-        "target": "dmg",
-        "icon": "assets/icon.ico"
-      },
-      "linux": {
-        "target": "AppImage",
-        "icon": "assets/icon.ico"
       }
     }
   }
-  
