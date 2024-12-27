@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build the application
-        run: npm run build --win
+        run: npm run build --win --publish never
 
       - name: Publish release
         if: success()
