@@ -26,7 +26,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: windows-build
-        path: dist/Звук\ Setup\ 1.0.0.exe
+        path: dist/*.exe
 
   release:
     needs: build
@@ -41,7 +41,7 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: Звук\ Setup\ 1.0.0.exe
+        artifacts: *.exe
         token: ${{ secrets.GH_TOKEN }}
         name: ${{ github.ref_name }}
         tag: ${{ github.ref_name }}
