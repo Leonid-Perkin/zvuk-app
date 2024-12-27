@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*.*.*'
+
 jobs:
   build:
     runs-on: windows-latest
@@ -13,7 +14,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '23'
+        node-version: '20'
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
@@ -24,6 +25,7 @@ jobs:
       with:
         name: windows-build
         path: dist/*.exe
+
   release:
     needs: build
     runs-on: ubuntu-latest
@@ -37,9 +39,9 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: *.exe
+        artifacts: dist/*.exe
         token: ${{ secrets.GH_TOKEN }}
-        name: ${{ github.event.release.tag_name }}
-        tag: ${{ github.event.release.tag_name }}
+        name: ${{ github.ref_name }}
+        tag: ${{ github.ref_name }}
         draft: false
         prerelease: false
