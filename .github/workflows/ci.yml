@@ -20,11 +20,13 @@ jobs:
       run: npm ci
     - name: Build Electron app
       run: npx electron-builder --win --publish never
+    - name: List files in dist
+      run: dir dist
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: windows-build
-        path: dist/*.exe
+        path: dist/Звук\ Setup\ 1.0.0.exe
 
   release:
     needs: build
@@ -39,7 +41,7 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: dist/*.exe
+        artifacts: Звук\ Setup\ 1.0.0.exe
         token: ${{ secrets.GH_TOKEN }}
         name: ${{ github.ref_name }}
         tag: ${{ github.ref_name }}
